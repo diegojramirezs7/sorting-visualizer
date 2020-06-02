@@ -80,7 +80,7 @@ class App extends React.Component {
           [active1]: list[j-1].key,
           [active2]: list[j].key
         })
-        await this.timer(15);
+        await this.timer(25);
       }
       this.setState({
         [active1]: 101,
@@ -108,7 +108,7 @@ class App extends React.Component {
               [active1]: list[j].key,
               [active2]: list[min].key
             })
-            await this.timer(15)
+            await this.timer(25)
         }
         
         // Swaping values
@@ -140,7 +140,7 @@ class App extends React.Component {
             [active1]: auxArray[j].key,
             [active2]: auxArray[i].key
           })
-          await this.timer(15);
+          await this.timer(25);
           auxArray[j + 1] = auxArray[j];
           auxArray[j] = {key: 100, value: auxArray[j].value};
           j--;
@@ -164,7 +164,8 @@ class App extends React.Component {
     var left;
     var sorted; 
     var maxIndex;
-    //var auxArray; 
+    var x;
+    var y;
 
     while (m < n){
       var i = 0;
@@ -176,16 +177,28 @@ class App extends React.Component {
         sorted = [];
         //auxArray = [];
 
+
         //merge
         while(left.length && right.length){
           //await this.timer(15);
+
+          x = list.slice(0, i);
+          y = list.slice(maxIndex, list.length);
+          var tempList = x.concat(sorted, left, right, y);
+         
+          await this.timer(25);
+          this.setState({
+            [array]: tempList,
+            [active1]: left[0].key,
+            [active2]: right[0].key
+          });
           
           if(left[0].value <= right[0].value){
             sorted.push(left.shift());
           }else{
             sorted.push(right.shift());
           }
-
+          //sorted + left + right
         }
 
         while(left.length){
@@ -198,12 +211,14 @@ class App extends React.Component {
 
 
 
+
+
         //recreate list, with sorted part
-        var x = list.slice(0, i);
-        var y = list.slice(maxIndex, list.length);
+        x = list.slice(0, i);
+        y = list.slice(maxIndex, list.length);
         list = x.concat(sorted, y);
         
-        await this.timer(15);
+        await this.timer(25);
         this.setState({
           [array]: list,
           [active1]: list[i].key,
@@ -250,7 +265,7 @@ class App extends React.Component {
             [active2]: j
           });
           j = parseInt((j - 1) / 2);
-          await this.timer(15)
+          await this.timer(25)
         }
       }
     }
@@ -268,7 +283,7 @@ class App extends React.Component {
       var index;
 
       while(true){
-        await this.timer(15);
+        await this.timer(25);
         
         index = 2*j+1;
 
@@ -332,7 +347,7 @@ class App extends React.Component {
       for(var j = low; j<=high-1; j++){
         if(list[j].value <= p.value){
           i++;
-          await this.timer(20);
+          await this.timer(25);
           this.swap(list, i, j);
           
 
@@ -349,7 +364,7 @@ class App extends React.Component {
 
       //end of partition 
 
-      await this.timer(20);
+      await this.timer(25);
       this.setState({
         [array]: list,
         [active1]: high,
