@@ -29,9 +29,9 @@ class App extends React.Component {
     active32: 101,
     active41: 101,
     active42: 101,
-    algorithm: 'bubblesort',
-    algorithm2: 'insertionsort',
-    algorithm3: 'selectionsort',
+    algorithm: 'heapsort',
+    algorithm2: 'heapsort',
+    algorithm3: 'heapsort',
     algorithm4: 'heapsort',
   }
 
@@ -177,7 +177,6 @@ class App extends React.Component {
         sorted = [];
         //auxArray = [];
 
-
         //merge
         while(left.length && right.length){
           //await this.timer(15);
@@ -208,10 +207,6 @@ class App extends React.Component {
         while(right.length){
           sorted.push(right.shift());
         }
-
-
-
-
 
         //recreate list, with sorted part
         x = list.slice(0, i);
@@ -272,7 +267,7 @@ class App extends React.Component {
    
     var length = list.length;
 
-    for(var i = length - 1; i>0; i--){
+    for(i = length - 1; i>0; i--){
       //swap value of first index with last index
       temp = list[0];
       list[0] = list[i];
@@ -471,7 +466,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Header handleNewArray={this.handleNewArray} onStart={this.onStart}/>
+          <Header handleNewArray={this.handleNewArray} onStart={this.onStart} />
           <Switch>
             <Route path='/doubleContainer'> 
               <DoubleContainer 

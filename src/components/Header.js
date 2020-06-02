@@ -23,13 +23,13 @@ function Header(props) {
       <AppBar position="static" style={{background: "#5f5f5f"}}>
         <Toolbar>
         	<div className={classes.root}>
-	        	<Button variant="contained" className={classes.btn}>
+	        	<Button variant="contained" className={classes.btn} >
 	            	<Link to="/">Single Algorithm</Link>
 	          	</Button>
-	         	<Button variant="contained" className={classes.btn}>
+	         	<Button variant="contained" className={classes.btn} >
 	            	<Link to="/doubleContainer">Compare 2</Link>
 	          	</Button>
-	          	<Button variant="contained" className={classes.btn}>
+	          	<Button variant="contained" className={classes.btn}> 
 	            	<Link to="/multipleContainer">Compare 4</Link>
 	         	</Button>
          	</div>
