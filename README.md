@@ -12,7 +12,7 @@ Web application built with React that visualizes 6 of the most common sorting al
 The visualizer allows comparison of 2 and 4 algorithms, and creation of new random arrays. 
 
 
-see the working web application: [here](https://diegojramirezs7.github.io/sorting-visualizer/)
+See the working web application: [here](https://diegojramirezs7.github.io/sorting-visualizer/)
 
 
 
